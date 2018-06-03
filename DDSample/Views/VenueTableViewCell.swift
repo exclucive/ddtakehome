@@ -9,7 +9,8 @@
 import UIKit
 
 class VenueTableViewCell: UITableViewCell {
-
+    static let cellIdentifier = "VenueTableViewCell"
+    
     @IBOutlet weak var venueImageView: UIImageView!
     @IBOutlet weak var venueNameLabel: UILabel!
     @IBOutlet weak var typeOfFoodLabel: UILabel!

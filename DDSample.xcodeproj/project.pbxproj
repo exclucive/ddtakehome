@@ -8,16 +8,23 @@
 
 /* Begin PBXBuildFile section */
 		8F0948A420C46002003A1E20 /* VenueTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0948A320C46002003A1E20 /* VenueTableViewCell.swift */; };
+		8F0948A720C46C5E003A1E20 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F0948A620C46C5E003A1E20 /* CoreLocation.framework */; };
 		8FC44BE720C4529400930D90 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC44BE620C4529400930D90 /* AppDelegate.swift */; };
 		8FC44BE920C4529400930D90 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC44BE820C4529400930D90 /* MapViewController.swift */; };
 		8FC44BEC20C4529400930D90 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8FC44BEA20C4529400930D90 /* Main.storyboard */; };
 		8FC44BEE20C4529400930D90 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8FC44BED20C4529400930D90 /* Assets.xcassets */; };
 		8FC44BF120C4529400930D90 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8FC44BEF20C4529400930D90 /* LaunchScreen.storyboard */; };
-		8FC44BFC20C4540F00930D90 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC44BFB20C4540F00930D90 /* Model.swift */; };
+		8FC44BFC20C4540F00930D90 /* Venue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC44BFB20C4540F00930D90 /* Venue.swift */; };
+		8FDAB8D720C499B100BBDB1E /* NetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDAB8D620C499B100BBDB1E /* NetworkingManager.swift */; };
+		8FDAB8DB20C49A7400BBDB1E /* DDNetworkingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDAB8D920C49A7400BBDB1E /* DDNetworkingError.swift */; };
+		8FDAB8DC20C49A7400BBDB1E /* DDError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDAB8DA20C49A7400BBDB1E /* DDError.swift */; };
+		8FDAB8DE20C49CD200BBDB1E /* VenuesFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDAB8DD20C49CD200BBDB1E /* VenuesFetcher.swift */; };
+		8FDAB8E020C4A78600BBDB1E /* VenuesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDAB8DF20C4A78600BBDB1E /* VenuesListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		8F0948A320C46002003A1E20 /* VenueTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueTableViewCell.swift; sourceTree = "<group>"; };
+		8F0948A620C46C5E003A1E20 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		8FC44BE320C4529400930D90 /* DDSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DDSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FC44BE620C4529400930D90 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8FC44BE820C4529400930D90 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -25,7 +32,12 @@
 		8FC44BED20C4529400930D90 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8FC44BF020C4529400930D90 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8FC44BF220C4529400930D90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8FC44BFB20C4540F00930D90 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		8FC44BFB20C4540F00930D90 /* Venue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Venue.swift; sourceTree = "<group>"; };
+		8FDAB8D620C499B100BBDB1E /* NetworkingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingManager.swift; sourceTree = "<group>"; };
+		8FDAB8D920C49A7400BBDB1E /* DDNetworkingError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDNetworkingError.swift; sourceTree = "<group>"; };
+		8FDAB8DA20C49A7400BBDB1E /* DDError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDError.swift; sourceTree = "<group>"; };
+		8FDAB8DD20C49CD200BBDB1E /* VenuesFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenuesFetcher.swift; sourceTree = "<group>"; };
+		8FDAB8DF20C4A78600BBDB1E /* VenuesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenuesListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +45,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F0948A720C46C5E003A1E20 /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8F0948A520C46C5E003A1E20 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8F0948A620C46C5E003A1E20 /* CoreLocation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		8FC44BDA20C4529400930D90 = {
 			isa = PBXGroup;
 			children = (
 				8FC44BE520C4529400930D90 /* DDSample */,
 				8FC44BE420C4529400930D90 /* Products */,
+				8F0948A520C46C5E003A1E20 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -63,6 +85,7 @@
 				8FC44BFE20C4542E00930D90 /* Views */,
 				8FC44BFD20C4541D00930D90 /* Model */,
 				8FC44BFA20C453FB00930D90 /* Networking */,
+				8FDAB8D820C49A3E00BBDB1E /* Support */,
 				8FC44BEA20C4529400930D90 /* Main.storyboard */,
 				8FC44BED20C4529400930D90 /* Assets.xcassets */,
 				8FC44BEF20C4529400930D90 /* LaunchScreen.storyboard */,
@@ -75,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				8FC44BE820C4529400930D90 /* MapViewController.swift */,
+				8FDAB8DF20C4A78600BBDB1E /* VenuesListViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -90,6 +114,8 @@
 		8FC44BFA20C453FB00930D90 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				8FDAB8D620C499B100BBDB1E /* NetworkingManager.swift */,
+				8FDAB8DD20C49CD200BBDB1E /* VenuesFetcher.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -97,7 +123,7 @@
 		8FC44BFD20C4541D00930D90 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				8FC44BFB20C4540F00930D90 /* Model.swift */,
+				8FC44BFB20C4540F00930D90 /* Venue.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -108,6 +134,15 @@
 				8F0948A320C46002003A1E20 /* VenueTableViewCell.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		8FDAB8D820C49A3E00BBDB1E /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				8FDAB8DA20C49A7400BBDB1E /* DDError.swift */,
+				8FDAB8D920C49A7400BBDB1E /* DDNetworkingError.swift */,
+			);
+			path = Support;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -182,9 +217,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8FC44BFC20C4540F00930D90 /* Model.swift in Sources */,
+				8FC44BFC20C4540F00930D90 /* Venue.swift in Sources */,
 				8F0948A420C46002003A1E20 /* VenueTableViewCell.swift in Sources */,
+				8FDAB8E020C4A78600BBDB1E /* VenuesListViewController.swift in Sources */,
+				8FDAB8DB20C49A7400BBDB1E /* DDNetworkingError.swift in Sources */,
+				8FDAB8DC20C49A7400BBDB1E /* DDError.swift in Sources */,
 				8FC44BE920C4529400930D90 /* MapViewController.swift in Sources */,
+				8FDAB8DE20C49CD200BBDB1E /* VenuesFetcher.swift in Sources */,
+				8FDAB8D720C499B100BBDB1E /* NetworkingManager.swift in Sources */,
 				8FC44BE720C4529400930D90 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
