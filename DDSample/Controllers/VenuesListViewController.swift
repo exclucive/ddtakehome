@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreLocation
+import Kingfisher
 
 class VenuesListViewController: UIViewController {
     private var currentLocation: CLLocation = CLLocation(latitude: 37.7834364, longitude: -122.40803770000002)
@@ -67,6 +68,7 @@ extension VenuesListViewController: UITableViewDelegate, UITableViewDataSource {
     private func configure(_ venueCell: VenueTableViewCell, indexPath: IndexPath) {
         let venue = venues[indexPath.row]
         
+        venueCell.venueImageView.kf.setImage(with: venue.thumbnailURL)
         venueCell.venueNameLabel.text = venue.name
         venueCell.typeOfFoodLabel.text = venue.description
         venueCell.deliveryPriceLabel.text = "$\(venue.deliveryFee) delivery"
