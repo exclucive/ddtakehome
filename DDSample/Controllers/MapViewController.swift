@@ -10,73 +10,110 @@ import UIKit
 import CoreLocation
 import MapKit
 
+protocol MapViewControllerDelegate: class {
+    func confirmedAddressWith(_ location: CLLocation)
+}
+
 class MapViewController: UIViewController {
-    private var locationManager: CLLocationManager?
-    private var currentLocation: CLLocation = CLLocation(latitude: 37.7834364, longitude: -122.40803770000002)
+    //
+    var location: CLLocation?
+    weak var delegate: MapViewControllerDelegate?
     
+    //
+    private let regionRadius: CLLocationDistance = 1000
+    private var geocoder: CLGeocoder = CLGeocoder()
+    
+    //
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var addressTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        addNavigationBar()
         prepareMap()
-            
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(mapViewTapped))
-        mapView.addGestureRecognizer(tapGesture)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-    @objc func mapViewTapped(gestureRecognizer: UIGestureRecognizer) {
-        let touchPoint = gestureRecognizer.location(in: mapView)
-        let coordinate = mapView.convert(touchPoint, toCoordinateFrom: mapView)
-        addPin(at: coordinate)
-    }
-
-    func addPin(at coordiante: CLLocationCoordinate2D) {
-        let newAnnotation = MKPointAnnotation()
-        newAnnotation.coordinate = coordiante
+    // MARK: UI related logic
+    private func addNavigationBar() {
+        let navigationBarLabel = UILabel()
+        navigationBarLabel.text = "Choose an Address"
+        navigationBarLabel.font = Constants.Apperance.navBarTitleFont
         
-        mapView.addAnnotation(newAnnotation)
+        let standaloneItem = UINavigationItem()
+        standaloneItem.titleView = navigationBarLabel
+        
+        let navigationBar = UINavigationBar(frame: CGRect(x: 0, y: 20, width: view.frame.width, height: 44))
+        navigationBar.isTranslucent = false
+        navigationBar.delegate = self
+        navigationBar.backgroundColor = .white
+        navigationBar.items = [standaloneItem]
+        view.addSubview(navigationBar)
+        
+        
+        navigationBar.translatesAutoresizingMaskIntoConstraints = false
+        navigationBar.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        navigationBar.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+    
+        navigationBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
     }
     
+    
     // MARK: Helpers
-    private func initialiaeLocationManager() {
-        guard CLLocationManager.locationServicesEnabled() else {
-            print("Location services are not enabled")
+    private func prepareMap() {
+        mapView.showsUserLocation = true
+        mapView.delegate = self
+        guard let currentLocation = location else {
             return
         }
-
-        locationManager = CLLocationManager()
-        locationManager?.delegate = self
-        locationManager?.stopUpdatingLocation()
-    }
-
-    private func prepareMap() {
-        mapView.delegate = self
-        
-        let regionRadius: CLLocationDistance = 1000
         centerMapOnLocation(location: currentLocation, radius: regionRadius)
     }
+    
     
     func centerMapOnLocation(location: CLLocation, radius: CLLocationDistance) {
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate, radius, radius)
         mapView.setRegion(coordinateRegion, animated: true)
     }
-}
-
-extension MapViewController: CLLocationManagerDelegate {
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let lastLocation = locations.last else {
-            return
-        }
-        
-        currentLocation = lastLocation
+    
+    // MARK: Actions
+    @IBAction func confirmAddressButtonAction(_ sender: Any) {
+        let addressCoordinate = mapView.centerCoordinate
+        let location = CLLocation(latitude: addressCoordinate.latitude,
+                                  longitude: addressCoordinate.longitude)
+        delegate?.confirmedAddressWith(location)
     }
 }
 
 extension MapViewController: MKMapViewDelegate {
-
+    func mapView(_ mapView: MKMapView, regionWillChangeAnimated animated: Bool) {
+        self.addressTextField.text = "Loading..."
+    }
+    
+    func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
+        let location = CLLocation(latitude: mapView.centerCoordinate.latitude, longitude: mapView.centerCoordinate.longitude)
+        
+        geocoder.reverseGeocodeLocation(location) {[unowned self] (placemarks, error) in
+            guard error == nil else {
+                self.presentError(error)
+                return
+            }
+            
+            guard let address = placemarks?.first?.name else {
+                return
+            }
+            
+            self.addressTextField.text = address
+        }
+    }
 }
+
+extension MapViewController: UINavigationBarDelegate {
+    public func position(for bar: UIBarPositioning) -> UIBarPosition {
+        return .topAttached
+    }
+}
+
 

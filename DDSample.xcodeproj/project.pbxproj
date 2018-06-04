@@ -10,6 +10,7 @@
 		61B46C6337983025E5BCEE24 /* Pods_DDSample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B96930F20356890C858264EA /* Pods_DDSample.framework */; };
 		8F0948A420C46002003A1E20 /* VenueTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0948A320C46002003A1E20 /* VenueTableViewCell.swift */; };
 		8F0948A720C46C5E003A1E20 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F0948A620C46C5E003A1E20 /* CoreLocation.framework */; };
+		8F59365820C50FD500672406 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F59365720C50FD500672406 /* Constants.swift */; };
 		8FC44BE720C4529400930D90 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC44BE620C4529400930D90 /* AppDelegate.swift */; };
 		8FC44BE920C4529400930D90 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC44BE820C4529400930D90 /* MapViewController.swift */; };
 		8FC44BEC20C4529400930D90 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8FC44BEA20C4529400930D90 /* Main.storyboard */; };
@@ -21,12 +22,14 @@
 		8FDAB8DC20C49A7400BBDB1E /* DDError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDAB8DA20C49A7400BBDB1E /* DDError.swift */; };
 		8FDAB8DE20C49CD200BBDB1E /* VenuesFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDAB8DD20C49CD200BBDB1E /* VenuesFetcher.swift */; };
 		8FDAB8E020C4A78600BBDB1E /* VenuesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDAB8DF20C4A78600BBDB1E /* VenuesListViewController.swift */; };
+		8FDAB8E320C4C9CF00BBDB1E /* DDSample+ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDAB8E220C4C9CF00BBDB1E /* DDSample+ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3DBE20D584A49CE6A9A77F38 /* Pods-DDSample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DDSample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DDSample/Pods-DDSample.debug.xcconfig"; sourceTree = "<group>"; };
 		8F0948A320C46002003A1E20 /* VenueTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueTableViewCell.swift; sourceTree = "<group>"; };
 		8F0948A620C46C5E003A1E20 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		8F59365720C50FD500672406 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		8FC44BE320C4529400930D90 /* DDSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DDSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FC44BE620C4529400930D90 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8FC44BE820C4529400930D90 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -40,6 +43,7 @@
 		8FDAB8DA20C49A7400BBDB1E /* DDError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDError.swift; sourceTree = "<group>"; };
 		8FDAB8DD20C49CD200BBDB1E /* VenuesFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenuesFetcher.swift; sourceTree = "<group>"; };
 		8FDAB8DF20C4A78600BBDB1E /* VenuesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenuesListViewController.swift; sourceTree = "<group>"; };
+		8FDAB8E220C4C9CF00BBDB1E /* DDSample+ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DDSample+ViewController.swift"; sourceTree = "<group>"; };
 		A0603AEE95082E24D7C1B2A4 /* Pods-DDSample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DDSample.release.xcconfig"; path = "Pods/Target Support Files/Pods-DDSample/Pods-DDSample.release.xcconfig"; sourceTree = "<group>"; };
 		B96930F20356890C858264EA /* Pods_DDSample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DDSample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -146,10 +150,20 @@
 		8FDAB8D820C49A3E00BBDB1E /* Support */ = {
 			isa = PBXGroup;
 			children = (
+				8FDAB8E120C4BCC400BBDB1E /* Error handling */,
+				8FDAB8E220C4C9CF00BBDB1E /* DDSample+ViewController.swift */,
+				8F59365720C50FD500672406 /* Constants.swift */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		8FDAB8E120C4BCC400BBDB1E /* Error handling */ = {
+			isa = PBXGroup;
+			children = (
 				8FDAB8DA20C49A7400BBDB1E /* DDError.swift */,
 				8FDAB8D920C49A7400BBDB1E /* DDNetworkingError.swift */,
 			);
-			path = Support;
+			path = "Error handling";
 			sourceTree = "<group>";
 		};
 		B7CB73EF1466BD74D9C7B661 /* Pods */ = {
@@ -290,6 +304,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8FDAB8E320C4C9CF00BBDB1E /* DDSample+ViewController.swift in Sources */,
+				8F59365820C50FD500672406 /* Constants.swift in Sources */,
 				8FC44BFC20C4540F00930D90 /* Venue.swift in Sources */,
 				8F0948A420C46002003A1E20 /* VenueTableViewCell.swift in Sources */,
 				8FDAB8E020C4A78600BBDB1E /* VenuesListViewController.swift in Sources */,

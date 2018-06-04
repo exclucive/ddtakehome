@@ -2,7 +2,7 @@
 //  DDNetworkingError.swift
 //  DDSample
 //
-//  Created by Igor Novik on 5/31/18.
+//  Created by Igor Novik on 6/3/18.
 //  Copyright © 2018 NAppsLab. All rights reserved.
 //
 
@@ -28,7 +28,7 @@ enum DDNetworkingError: DDErrorType {
     var description: String {
         switch self {
         case .venuesFetchingError:
-            return "The error occured during venues fetching downloading"
+            return "The error occured during venues fetching"
         }
     }
 }
